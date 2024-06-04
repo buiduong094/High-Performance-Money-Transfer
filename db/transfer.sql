@@ -1,0 +1,105 @@
+-- MySQL dump 10.13  Distrib 8.1.0, for macos13.3 (arm64)
+--
+-- Host: localhost    Database: transfer
+-- ------------------------------------------------------
+-- Server version	8.1.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `Accounts`
+--
+
+DROP TABLE IF EXISTS `Accounts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Accounts` (
+  `AccountID` int NOT NULL AUTO_INCREMENT,
+  `AccountNumber` varchar(20) DEFAULT NULL,
+  `Balance` decimal(18,2) DEFAULT NULL,
+  PRIMARY KEY (`AccountID`),
+  UNIQUE KEY `AccountNumber` (`AccountNumber`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Accounts`
+--
+
+LOCK TABLES `Accounts` WRITE;
+/*!40000 ALTER TABLE `Accounts` DISABLE KEYS */;
+INSERT INTO `Accounts` VALUES (1,'ACCT-1',3511.58),(2,'ACCT-2',1702.32),(3,'ACCT-3',4061.86),(4,'ACCT-4',4891.35),(5,'ACCT-5',8004.16),(6,'ACCT-6',8048.74),(7,'ACCT-7',1348.23),(8,'ACCT-8',8980.95),(9,'ACCT-9',6903.03),(10,'ACCT-10',1373.32),(11,'ACCT-11',1999.52),(12,'ACCT-12',7798.64),(13,'ACCT-13',2979.62),(14,'ACCT-14',8515.21),(15,'ACCT-15',6387.16),(16,'ACCT-16',7254.18),(17,'ACCT-17',8231.41),(18,'ACCT-18',9805.51),(19,'ACCT-19',261.32),(20,'ACCT-20',5896.07),(21,'ACCT-21',8849.39),(22,'ACCT-22',5445.76),(23,'ACCT-23',665.61),(24,'ACCT-24',6999.76),(25,'ACCT-25',3002.00),(26,'ACCT-26',4010.71),(27,'ACCT-27',1047.56),(28,'ACCT-28',3205.68),(29,'ACCT-29',2884.70),(30,'ACCT-30',4811.45),(31,'ACCT-31',5399.18),(32,'ACCT-32',2566.54),(33,'ACCT-33',6632.17),(34,'ACCT-34',5462.23),(35,'ACCT-35',7409.63),(36,'ACCT-36',664.48),(37,'ACCT-37',1093.50),(38,'ACCT-38',3473.06),(39,'ACCT-39',4089.80),(40,'ACCT-40',26.80),(41,'ACCT-41',7864.63),(42,'ACCT-42',9242.75),(43,'ACCT-43',2619.86),(44,'ACCT-44',5371.03),(45,'ACCT-45',8994.58),(46,'ACCT-46',8864.80),(47,'ACCT-47',7337.29),(48,'ACCT-48',93.03),(49,'ACCT-49',8448.27),(50,'ACCT-50',1965.26),(51,'ACCT-51',4480.49),(52,'ACCT-52',6510.67),(53,'ACCT-53',9113.88),(54,'ACCT-54',6034.39),(55,'ACCT-55',2830.30),(56,'ACCT-56',6048.33),(57,'ACCT-57',1750.77),(58,'ACCT-58',608.83),(59,'ACCT-59',7791.86),(60,'ACCT-60',7132.80),(61,'ACCT-61',2288.43),(62,'ACCT-62',43.73),(63,'ACCT-63',3353.38),(64,'ACCT-64',6634.71),(65,'ACCT-65',3118.39),(66,'ACCT-66',5683.82),(67,'ACCT-67',9068.94),(68,'ACCT-68',8290.25),(69,'ACCT-69',4243.44),(70,'ACCT-70',6350.44),(71,'ACCT-71',9023.89),(72,'ACCT-72',6065.14),(73,'ACCT-73',3253.02),(74,'ACCT-74',8073.70),(75,'ACCT-75',611.42),(76,'ACCT-76',8833.00),(77,'ACCT-77',2330.73),(78,'ACCT-78',5153.66),(79,'ACCT-79',8781.13),(80,'ACCT-80',8441.65),(81,'ACCT-81',5864.86),(82,'ACCT-82',3999.35),(83,'ACCT-83',2403.19),(84,'ACCT-84',12.90),(85,'ACCT-85',2857.92),(86,'ACCT-86',4250.90),(87,'ACCT-87',2680.75),(88,'ACCT-88',652.04),(89,'ACCT-89',5211.94),(90,'ACCT-90',4111.59),(91,'ACCT-91',4919.12),(92,'ACCT-92',2260.82),(93,'ACCT-93',6546.76),(94,'ACCT-94',5950.35),(95,'ACCT-95',116.44),(96,'ACCT-96',2728.16),(97,'ACCT-97',3291.47),(98,'ACCT-98',8272.89),(99,'ACCT-99',1232.03),(100,'ACCT-100',2888.50);
+/*!40000 ALTER TABLE `Accounts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `History`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `History` (
+  `TransactionID` int NOT NULL AUTO_INCREMENT,
+  `AccountID` int DEFAULT NULL,
+  `TransactionType` varchar(50) DEFAULT NULL,
+  `TransactionCode` varchar(100) DEFAULT NULL,
+  `Amount` decimal(18,2) DEFAULT NULL,
+  `TransactionDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`TransactionID`),
+  KEY `AccountID` (`AccountID`),
+  CONSTRAINT `history_ibfk_1` FOREIGN KEY (`AccountID`) REFERENCES `Accounts` (`AccountID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `History`
+--
+
+LOCK TABLES `History` WRITE;
+/*!40000 ALTER TABLE `History` DISABLE KEYS */;
+/*!40000 ALTER TABLE `History` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Transactions`
+--
+
+DROP TABLE IF EXISTS `Transactions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Transactions` (
+  `TransactionID` int NOT NULL AUTO_INCREMENT,
+  `SenderAccountID` int DEFAULT NULL,
+  `ReceiverAccountID` int DEFAULT NULL,
+  `Amount` decimal(18,2) DEFAULT NULL,
+  `TransactionDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`TransactionID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Transactions`
+--
+
+LOCK TABLES `Transactions` WRITE;
+/*!40000 ALTER TABLE `Transactions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Transactions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-06-04 21:17:18
