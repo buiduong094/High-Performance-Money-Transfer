@@ -183,6 +183,12 @@ The core functionality of the application is in the `transferMoney` function whi
 
 ## Trading Modules
 
+### Design
+
+<img alt="Desgin" src="https://raw.githubusercontent.com/buiduong094/High-Performance-Money-Transfer/main/images/trading.png">
+### Scale the design:
+<img alt="Scale Design" src="https://raw.githubusercontent.com/buiduong094/High-Performance-Money-Transfer/main/images/trading-detail.png">
+
 ```
 ---------------------------------
 --------Threads        : 5
