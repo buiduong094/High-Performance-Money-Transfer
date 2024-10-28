@@ -182,7 +182,9 @@ The core functionality of the application is in the `transferMoney` function whi
 - **Worker Threads**: Multiple worker threads are used to process transactions in parallel, increasing the throughput.
 
 ## Trading Modules
-
+### Small module
+There is a CDC consumer that reads from the topic and pushes data to Cassandra.
+https://github.com/buiduong094/High-Performance-Money-Transfer/tree/main/java/OrderMatchTransferCassandraConsumer
 ### Design
 
 <img alt="Desgin" src="https://raw.githubusercontent.com/buiduong094/High-Performance-Money-Transfer/main/images/trading.png">
